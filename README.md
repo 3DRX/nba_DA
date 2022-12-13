@@ -8,6 +8,8 @@ Python: 3.8.10
 NumPy: 1.23.5  
 DataSet(included in repository): [click here](https://www.kaggle.com/datasets/isaienkov/nba2k20-player-dataset)  
 
+Run code: `python3 ./main.py`
+
 ## References & Inspirations
 
 https://en.wikipedia.org/wiki/Linear_regression  
