@@ -9,21 +9,26 @@ description: This project is part of my essay for 概率论与数理统计
 import numpy as np
 import csv
 import unary_linear_regression as Ulr
-from player import player
+from attempt import attempt
 
 
 if __name__ == '__main__':
     # 从 CSV 中读取输入，存到 all_players : np.ndarray<player> 中
-    all_players = []
-    with open('nba2k-full.csv', 'r') as csv_file:
+    all_attempts = []
+    with open('kobe_basket.csv', 'r') as csv_file:
         reader = csv.reader(csv_file)
         for row in reader:
-            all_players.append(player(row))
+            if row[0] == 'vs':
+                continue
+            all_attempts.append(attempt(row))
             pass
         pass
-    all_players = np.array(all_players)
-    for guy in all_players:
-        if guy.name() == 'Russell Westbrook':
-            print(guy.name())
+    all_attempts = np.array(all_attempts)
+    for att in all_attempts:
+        print(att.type)
         pass
+    # ============================================ Finish input and Parsing
+    # get percentages of 3 types of attempts:
+    #     un_known, close, mid_range, three_point
+    attempt_in_a_game = np.array([0, 0, 0, 0, 0])
     pass
