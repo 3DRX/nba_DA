@@ -13,7 +13,7 @@ from attempt import attempt
 
 
 if __name__ == '__main__':
-    # 从 CSV 中读取输入，存到 all_players : np.ndarray<player> 中
+    # 从 CSV 中读取输入
     all_attempts = []
     with open('kobe_basket.csv', 'r') as csv_file:
         reader = csv.reader(csv_file)
@@ -27,27 +27,27 @@ if __name__ == '__main__':
     # ============================================ Finish input and Parsing
     # get percentages of 3 types of attempts:
     #     un_known, close, mid_range, three_point
-    attempt_in_a_game = np.empty(5)
+    attempt_in_a_game = np.empty(5)               # 总出手数
     attempt_in_a_game.fill(0)
-    percentage_in_a_game = np.empty(5)
+    percentage_in_a_game = np.empty(5)            # 总命中率
     percentage_in_a_game.fill(0)
-    three_point_in_a_game = np.empty(5)
+    three_point_in_a_game = np.empty(5)           # 三分球出手数
     three_point_in_a_game.fill(0)
-    three_point_made_in_a_game = np.empty(5)
+    three_point_made_in_a_game = np.empty(5)      # 三分球命中数
     three_point_made_in_a_game.fill(0)
-    three_point_percentage = np.empty(5)
+    three_point_percentage = np.empty(5)          # 三分球命中率
     three_point_percentage.fill(0)
-    mid_range_in_a_game = np.empty(5)
+    mid_range_in_a_game = np.empty(5)             # 中距离出手数
     mid_range_in_a_game.fill(0)
-    mid_range_made_in_a_game = np.empty(5)
+    mid_range_made_in_a_game = np.empty(5)        # 中距离命中数
     mid_range_made_in_a_game.fill(0)
-    mid_range_percentage = np.empty(5)
+    mid_range_percentage = np.empty(5)            # 中距离命中率
     mid_range_percentage.fill(0)
-    close_in_a_game = np.empty(5)
+    close_in_a_game = np.empty(5)                 # 近距离出售数
     close_in_a_game.fill(0)
-    close_made_in_a_game = np.empty(5)
+    close_made_in_a_game = np.empty(5)            # 近距离命中数
     close_made_in_a_game.fill(0)
-    close_percentage = np.empty(5)
+    close_percentage = np.empty(5)                # 近距离命中率
     close_percentage.fill(0)
     for att in all_attempts:
         attempt_in_a_game[att.game-1] += 1
