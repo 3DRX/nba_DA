@@ -49,6 +49,7 @@ if __name__ == '__main__':
     close_made_in_a_game.fill(0)
     close_percentage = np.empty(5)                # 近距离命中率
     close_percentage.fill(0)
+    # 计算各项数据
     for att in all_attempts:
         attempt_in_a_game[att.game-1] += 1
         if att.type == 'close':
@@ -80,12 +81,13 @@ if __name__ == '__main__':
             close_made_in_a_game[i]
         ) / attempt_in_a_game[i]
         pass
+    # 基础数据计算结束
     print("3pt: ", end='')
     print(three_point_in_a_game)
     print("mid range: ", end='')
     print(mid_range_in_a_game)
     print('------------------------------------------------------')
-    # 在 alpha = 0.05 下
+    # 在 alpha = 0.1 下
     alpha = 0.1
     # 判断五场比赛中科比的中距离得分效率和三分球得分效率有无显著差异
     arr = np.zeros(shape=(2, 5))

@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.stats import f
+from scipy.stats import f  # F检验
 
 
 def ave(arr: np.ndarray) -> np.longdouble:
@@ -70,6 +70,4 @@ def not_accept_H_0(arr: np.ndarray, alpha: float) -> bool:
     arr: 每种水平下的实验结果组成一行，的二位数组
     alpha: 检验所使用的 alpha 值
     '''
-    # print((S_A(arr)/(arr.shape[0]-1))/(S_E(arr)/(arr.size-arr.shape[0])))
-    # print(f.isf(alpha, arr.shape[0]-1, arr.size-arr.shape[0]))
     return (S_A(arr)/(arr.shape[0]-1))/(S_E(arr)/(arr.size-arr.shape[0])) >= f.isf(alpha, arr.shape[0]-1, arr.size-arr.shape[0])
