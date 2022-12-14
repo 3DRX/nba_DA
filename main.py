@@ -2,7 +2,7 @@
 title: Analysis of Kobe Bryant's performance in the play-off against ORL
 author: Kang Jingyang
 date: 2022-12-13
-lastmod: 2022-12-13
+lastmod: 2022-12-15
 description: This project is part of my essay for 概率论与数理统计
 '''
 
@@ -90,6 +90,7 @@ if __name__ == '__main__':
     # 在 alpha = 0.1 下
     alpha = 0.1
     # 判断五场比赛中科比的中距离得分效率和三分球得分效率有无显著差异
+    print("前五场比赛：")
     arr = np.zeros(shape=(2, 5))
     for i in range(5):
         arr[0][i] += three_point_percentage[i]*300
@@ -101,7 +102,9 @@ if __name__ == '__main__':
     else:
         print('not accept，有显著差异')
         pass
+    print()
     # 判断后三场比赛中科比的中距离得分效率和三分球得分效率有无显著差异
+    print("后三场比赛：")
     arr = np.zeros(shape=(2, 3))
     for i in range(3):
         arr[0][i] += three_point_percentage[i+2]*300
