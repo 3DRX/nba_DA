@@ -80,12 +80,35 @@ if __name__ == '__main__':
             close_made_in_a_game[i]
         ) / attempt_in_a_game[i]
         pass
-    print("percentage_in_a_game")
-    print(percentage_in_a_game)
-    print("three_point_percentage")
-    print(three_point_percentage)
-    print("mid_range_percentage")
-    print(mid_range_percentage)
-    print("close_percentage")
-    print(close_percentage)
+    print("3pt: ", end='')
+    print(three_point_in_a_game)
+    print("mid range: ", end='')
+    print(mid_range_in_a_game)
+    print('------------------------------------------------------')
+    # 在 alpha = 0.05 下
+    alpha = 0.1
+    # 判断五场比赛中科比的中距离得分效率和三分球得分效率有无显著差异
+    arr = np.zeros(shape=(2, 5))
+    for i in range(5):
+        arr[0][i] += three_point_percentage[i]*300
+        arr[1][i] += (mid_range_percentage[i])*200
+        pass
+    print(arr)
+    if not Ulr.not_accept_H_0(arr, alpha):
+        print('accept，无显著差异')
+    else:
+        print('not accept，有显著差异')
+        pass
+    # 判断后三场比赛中科比的中距离得分效率和三分球得分效率有无显著差异
+    arr = np.zeros(shape=(2, 3))
+    for i in range(3):
+        arr[0][i] += three_point_percentage[i+2]*300
+        arr[1][i] += (mid_range_percentage[i+2])*200
+        pass
+    print(arr)
+    if not Ulr.not_accept_H_0(arr, alpha):
+        print('accept，无显著差异')
+    else:
+        print('not accept，有显著差异')
+        pass
     pass
