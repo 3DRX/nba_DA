@@ -11,13 +11,12 @@ class attempt:
         self.description: str = ipt[4]
         self.type = 'un_known'  # un_known, close, mid_range, three_point
         if ipt[5] == 'H':
-            self.shot = True
+            self.made = True
             pass
         else:
-            self.shot = False
+            self.made = False
             pass
         self.__parse_description()
-        print(self.type)
         pass
 
     def __parse_description(self) -> None:
